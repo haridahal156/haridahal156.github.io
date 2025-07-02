@@ -51,11 +51,14 @@
       display: flex;
       align-items: flex-start;
       gap: 2rem;
+      margin-top: 1rem;
     }
     .profile img {
       width: 260px;
       border-radius: 10px;
       border: 2px solid #ccc;
+      height: auto;
+      object-fit: cover;
     }
     .summary {
       font-size: 1.05rem;
@@ -77,23 +80,27 @@
   </nav>
   <main>
     <h2>Welcome</h2>
-    <img src="headshot_23.jpg" alt="Hari Dahal" />
-
-<div class="summary">
-  <p><strong>Hari Dahal</strong></p>
-  <p>PhD candidate</p>
-  <p>
-    <a href="https://math.rpi.edu/" target="_blank" rel="noopener noreferrer">
-      Department of Mathematical Sciences
-    </a>
-  </p>
-  <p>
-    <a href="https://www.rpi.edu/" target="_blank" rel="noopener noreferrer">
-      Rensselaer Polytechnic Institute
-    </a>
-  </p>
-</div>
+    <div class="profile">
+      <img src="headshot_23.jpg" alt="Hari Dahal" />
+      <div class="summary">
+        <p><strong>Hari Dahal</strong></p>
+        <p>PhD candidate</p>
+        <p>
+          <a href="https://math.rpi.edu/" target="_blank" rel="noopener noreferrer">
+            Department of Mathematical Sciences
+          </a>
+        </p>
+        <p>
+          <a href="https://www.rpi.edu/" target="_blank" rel="noopener noreferrer">
+            Rensselaer Polytechnic Institute
+          </a>
+        </p>
+        <p>
+          Research in optimization, machine learning, and optimal transport with a focus on distributed algorithms and applications in AI.
+        </p>
+      </div>
     </div>
   </main>
 </body>
 </html>
+
