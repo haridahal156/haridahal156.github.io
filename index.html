@@ -6,67 +6,139 @@
   <title>Hari Dahal | Applied Mathematics PhD</title>
   <meta name="description" content="Hari Dahal - PhD candidate in Applied Mathematics at RPI. Research in optimization, machine learning, and optimal transport." />
   <style>
+    /* Reset some default */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       margin: 0;
-      padding: 2rem;
+      padding: 2rem 1rem;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
       line-height: 1.6;
+      background-color: #fefefe;
       color: #222;
-      background-color: #fff;
     }
+
+    img.profile-pic {
+      width: 150px;
+      max-width: 40vw;
+      height: auto;
+      float: right;
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      border: 3px solid #003366;
+      object-fit: cover;
+    }
+
     h1, h2 {
       color: #003366;
+      margin-top: 0;
     }
+
     h1 {
-      border-bottom: 2px solid #003366;
-      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #003366;
+      padding-bottom: 0.4rem;
+      font-weight: 800;
+      font-size: 2.6rem;
     }
+
     h2 {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
+      font-weight: 700;
+      font-size: 1.8rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.3rem;
+      color: #00509e;
     }
-    ul {
-      padding-left: 1.2rem;
+
+    p.contact {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+      color: #444;
     }
+
     a {
       color: #0066cc;
       text-decoration: none;
+      transition: color 0.2s ease-in-out;
     }
+
     a:hover {
       text-decoration: underline;
+      color: #004080;
     }
-    .contact {
-      font-weight: 500;
-      margin-bottom: 1rem;
+
+    ul {
+      padding-left: 1.4rem;
+      margin-top: 0.6rem;
+      color: #333;
+      font-size: 1rem;
     }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
     hr {
       border: none;
       border-top: 1px solid #ccc;
-      margin: 2rem 0;
+      margin: 3rem 0 1.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 3rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      img.profile-pic {
+        float: none;
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        width: 120px;
+      }
+
+      body {
+        padding: 1rem 0.8rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Profile Picture -->
-  <img src="headshot_23.jpg" alt="Hari Dahal" style="width:200px; float: right; margin: 10px; border-radius: 8px;">
+  <img src="headshot_23.jpg" alt="Hari Dahal" class="profile-pic" />
 
-  <!-- Header -->
   <h1>Hari Dahal</h1>
   <p class="contact">
-    Troy, NY 12180 • (318) 791-6153 • 
+    Troy, NY 12180 • (318) 791-6153 •
     <a href="mailto:haridahal156@gmail.com">haridahal156@gmail.com</a>
   </p>
 
-  <!-- Education Section -->
   <h2>Education</h2>
   <ul>
     <li><strong>PhD, Applied Mathematics</strong>, Rensselaer Polytechnic Institute — GPA: 4.0, Dec 2025</li>
     <li><strong>MSc, Applied Mathematics</strong>, Rensselaer Polytechnic Institute — GPA: 4.0, May 2022</li>
     <li><strong>BSc, Applied Mathematics</strong>, University of Louisiana Monroe — GPA: 3.98, May 2020</li>
   </ul>
-
 
   <h2>Research Experience</h2>
   <p><strong>Doctoral Researcher</strong>, Dept. of Mathematical Sciences, RPI (May 2020 – Present)</p>
@@ -122,7 +194,7 @@
 
   <h2>Publications</h2>
   <ul>
-    <li><a href="https://arxiv.org/abs/2311.09065" target="_blank">DPALM for Weakly-Convex Problems with Convex Constraints</a>, submitted to MPC, May 2025</li>
+    <li><a href="https://arxiv.org/abs/2311.09065" target="_blank" rel="noopener noreferrer">DPALM for Weakly-Convex Problems with Convex Constraints</a>, submitted to MPC, May 2025</li>
     <li>Solving Dynamic Optimal Transport using Distributed Optimization (Ongoing)</li>
   </ul>
 
@@ -150,7 +222,8 @@
   </ul>
 
   <hr />
-  <p>&copy; 2025 Hari Dahal</p>
-
+  <footer>
+    &copy; 2025 Hari Dahal
+  </footer>
 </body>
 </html>
