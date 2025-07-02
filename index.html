@@ -11,6 +11,7 @@
       display: flex;
       background-color: #e6f0ff;  /* Changed background color here */
       height: 100vh; /* full viewport height */
+      flex-direction: column;
     }
     nav {
       width: 250px;
@@ -52,9 +53,8 @@
       padding: 2rem;
       max-width: 900px;
       width: calc(100% - 250px);
-      height: 100vh;
-
-      /* Center contents vertically */
+      /* Center contents vertically and horizontally */
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,6 +93,24 @@
       color: #222;
       text-align: center; /* center below profile */
       line-height: 1.6;
+    }
+    /* Logos container */
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      padding: 1rem 0;
+      border-top: 1px solid #ccc;
+      background-color: #d9e6ff;
+      margin-top: auto; /* push logos to bottom */
+      width: 100%;
+      max-width: 900px;
+    }
+    .logos img {
+      width: 100px;
+      height: auto;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -133,6 +151,12 @@
     <div class="research-interests">
       <h2>Research Interests</h2>
       <p>Constrained optimization algorithms, first-order methods & nonconvex optimization, optimal transport & distributed optimization, convergence analysis of algorithms.</p>
+    </div>
+
+    <div class="Research partly supported by">
+      <img src="IBM-Logo.png" alt="Logo 1" />
+      <img src="NSF-logo.png" alt="Logo 2" />
+      <img src="ONR-logo.png" alt="Logo 3" />
     </div>
   </main>
 </body>
