@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hari Dahal | Homepage</title>
   <link rel="stylesheet" href="style.css" />
   <style>
@@ -48,6 +47,20 @@
     h2 {
       color: #003366;
     }
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .profile img {
+      width: 160px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+    }
+    .summary {
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -64,9 +77,14 @@
   </nav>
   <main>
     <h2>Welcome</h2>
-    <p>PhD Candidate in Applied Mathematics at Rensselaer Polytechnic Institute.</p>
-    <p>This site provides information about my research, publications, teaching, and academic background.</p>
+    <div class="profile">
+      <img src="headshot_23.jpg" alt="Hari Dahal">
+      <div class="summary">
+        <p><strong>Hari Dahal</strong> is a PhD candidate in Applied Mathematics at Rensselaer Polytechnic Institute (RPI), specializing in optimization algorithms, machine learning, and optimal transport. His research involves the development of first-order methods such as the Damped Proximal Augmented Lagrangian Method (DPALM) for solving constrained nonconvex problems.</p>
+        <p>He has interned at Applied Materials as both a Machine Learning Engineer and Data Scientist, applying advanced models in real-world industrial settings. His academic background includes an MSc and BSc in Applied Mathematics, maintaining a near-perfect GPA throughout.</p>
+        <p>Hari has received awards including the Joaquin B. Diaz Prize and the SIAM Travel Award, and has published on arXiv with ongoing contributions in distributed optimal transport. He is also an experienced teaching assistant and student leader in the SIAM RPI chapter.</p>
+      </div>
+    </div>
   </main>
 </body>
 </html>
-
