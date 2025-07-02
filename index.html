@@ -53,23 +53,26 @@
       max-width: 900px;
       width: calc(100% - 250px);
       height: 100vh;
-      
-      /* Center contents */
+
+      /* Center contents vertically */
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      flex-direction: column;
+      gap: 3rem;
     }
     h2 {
       color: #003366;
-      margin-bottom: 2rem;
+      margin: 0;
     }
     .profile {
       display: flex;
       align-items: center;
       gap: 2rem;
       max-width: 700px;
+      width: 100%;
+      text-align: left; /* left-align text */
     }
     .profile img {
       width: 260px;
@@ -82,7 +85,13 @@
     .summary {
       font-size: 1.05rem;
       line-height: 1.6;
-      text-align: left;
+    }
+    .research-interests {
+      max-width: 700px;
+      font-size: 1.05rem;
+      color: #222;
+      text-align: center; /* center below profile */
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -99,7 +108,6 @@
     </ul>
   </nav>
   <main>
-    <h2>Welcome</h2>
     <div class="profile">
       <img src="headshot_23.jpg" alt="Hari Dahal" />
       <div class="summary">
@@ -119,6 +127,11 @@
           Research in optimization, machine learning, and optimal transport with a focus on distributed algorithms and applications in AI.
         </p>
       </div>
+    </div>
+
+    <div class="research-interests">
+      <h2>Research Interests</h2>
+      <p>Constrained optimization algorithms, first-order methods & nonconvex optimization, optimal transport & distributed optimization, convergence analysis of algorithms.</p>
     </div>
   </main>
 </body>
