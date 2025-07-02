@@ -8,11 +8,10 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #e6f0ff; /* blue background */
       display: flex;
-      background-color: #e6f0ff;  /* Changed background color here */
-      height: 100vh; /* full viewport height */
-      flex-direction: column;
     }
+
     nav {
       width: 250px;
       background-color: #003366;
@@ -24,20 +23,24 @@
       flex-direction: column;
       align-items: center;
     }
+
     nav h1 {
       font-size: 1.8rem;
       margin-bottom: 2rem;
       text-align: center;
     }
+
     nav ul {
       list-style: none;
       padding: 0;
       width: 100%;
     }
+
     nav ul li {
       margin: 1rem 0;
       text-align: center;
     }
+
     nav ul li a {
       color: #aad4ff;
       text-decoration: none;
@@ -45,72 +48,87 @@
       display: block;
       padding: 0.5rem 0;
     }
+
     nav ul li a:hover {
       text-decoration: underline;
     }
+
     main {
       margin-left: 250px;
       padding: 2rem;
-      max-width: 900px;
-      width: calc(100% - 250px);
-      /* Center contents vertically and horizontally */
-      flex-grow: 1;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      gap: 3rem;
+      align-items: flex-start;
+      min-height: 100vh;
+      width: calc(100% - 250px);
+      box-sizing: border-box;
     }
-    h2 {
-      color: #003366;
-      margin: 0;
+
+    .content-box {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      width: 100%;
     }
+
     .profile {
       display: flex;
       align-items: center;
       gap: 2rem;
-      max-width: 700px;
-      width: 100%;
-      text-align: left; /* left-align text */
+      margin-bottom: 2rem;
     }
+
     .profile img {
-      width: 260px;
+      width: 240px;
       border-radius: 10px;
       border: 2px solid #ccc;
-      height: auto;
       object-fit: cover;
-      flex-shrink: 0;
     }
+
     .summary {
       font-size: 1.05rem;
       line-height: 1.6;
       color: #222;
     }
+
+    .summary a {
+      color: #003366;
+      text-decoration: none;
+    }
+
+    .summary a:hover {
+      text-decoration: underline;
+    }
+
     .research-interests {
-      max-width: 700px;
       font-size: 1.05rem;
       color: #222;
-      text-align: center; /* center below profile */
-      line-height: 1.6;
+      margin-top: 2rem;
     }
-    /* Logos container */
+
+    .research-interests h2 {
+      color: #003366;
+      margin-bottom: 0.5rem;
+    }
+
     .logos {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
-      gap: 3rem;
-      padding: 1rem 0;
+      padding: 2rem 0 1rem;
       border-top: 1px solid #ccc;
-      background-color: #d9e6ff;
-      margin-top: auto; /* push logos to bottom */
-      width: 100%;
-      max-width: 900px;
+      margin-top: 3rem;
+      flex-wrap: wrap;
     }
+
     .logos img {
       width: 100px;
       height: auto;
       object-fit: contain;
+      margin: 0 1rem;
+      filter: grayscale(30%);
     }
   </style>
 </head>
@@ -126,39 +144,42 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <main>
-    <div class="profile">
-      <img src="headshot_23.jpg" alt="Hari Dahal" />
-      <div class="summary">
-        <p><strong>Hari Dahal</strong></p>
-        <p>PhD candidate</p>
-        <p>
-          <a href="https://math.rpi.edu/" target="_blank" rel="noopener noreferrer">
-            Department of Mathematical Sciences
-          </a>
-        </p>
-        <p>
-          <a href="https://www.rpi.edu/" target="_blank" rel="noopener noreferrer">
-            Rensselaer Polytechnic Institute
-          </a>
-        </p>
-        <p>
-          Research in optimization, machine learning, and optimal transport with a focus on distributed algorithms and applications in AI.
-        </p>
+    <div class="content-box">
+      <div class="profile">
+        <img src="headshot_23.jpg" alt="Hari Dahal" />
+        <div class="summary">
+          <p><strong>Hari Dahal</strong></p>
+          <p>PhD candidate</p>
+          <p>
+            <a href="https://math.rpi.edu/" target="_blank" rel="noopener noreferrer">
+              Department of Mathematical Sciences
+            </a>
+          </p>
+          <p>
+            <a href="https://www.rpi.edu/" target="_blank" rel="noopener noreferrer">
+              Rensselaer Polytechnic Institute
+            </a>
+          </p>
+          <p>
+            Research in optimization, machine learning, and optimal transport with a focus on distributed algorithms and applications in AI.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="research-interests">
-      <h2>Research Interests</h2>
-      <p>Constrained optimization algorithms, first-order methods & nonconvex optimization, optimal transport & distributed optimization, convergence analysis of algorithms.</p>
-    </div>
+      <div class="research-interests">
+        <h2>Research Interests</h2>
+        <p>Constrained optimization algorithms, first-order methods & nonconvex optimization, optimal transport & distributed optimization, convergence analysis of algorithms.</p>
+      </div>
 
-    <div class="Research partly supported by">
-      <h2> Research partly supported by</h2>
-      <img src="IBM-Logo.jpg" alt="Logo 1" />
-      <img src="NSF-logo.png" alt="Logo 2" />
-      <img src="ONR-logo.png" alt="Logo 3" />
+      <div class="logos">
+        <img src="IBM-Logo.jpg" alt="IBM Logo" />
+        <img src="ONR-logo.png" alt="ONR Logo" />
+        <img src="NSF-logo.png" alt="NSF Logo" />
+      </div>
     </div>
   </main>
 </body>
 </html>
+
