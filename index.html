@@ -2,147 +2,414 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Homepage of Hari Dahal, a postdoctoral researcher in biomedical informatics, optimization, digital twins, machine learning, and causal inference."
+  />
+
   <title>Hari Dahal | Homepage</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
       background-color: #e6f0ff;
-      display: flex;
+      color: #2f3640;
+      font-family: "Source Sans 3", sans-serif;
     }
 
     nav {
-      width: 250px;
-      background-color: #003366;
-      color: #fff;
-      padding: 2rem 1rem;
-      height: 100vh;
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      padding: 2rem 1rem;
+      background-color: #003366;
+      color: #ffffff;
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 4px 0 14px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
 
     nav h1 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
+      font-size: 1.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
       text-align: center;
     }
 
     nav ul {
-      list-style: none;
-      padding: 0;
       width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     nav ul li {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       text-align: center;
     }
 
     nav ul li a {
-      color: #aad4ff;
-      text-decoration: none;
-      font-weight: bold;
       display: block;
-      padding: 0.5rem 0;
+      padding: 0.7rem 1rem;
+      border-radius: 7px;
+      color: #aad4ff;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     }
 
-    nav ul li a:hover {
-      text-decoration: underline;
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    nav ul li a.active {
+      background-color: #ffffff;
+      color: #003366;
     }
 
     main {
+      width: calc(100% - 250px);
+      min-height: 100vh;
       margin-left: 250px;
-      padding: 2rem;
+      padding: 2.5rem;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      min-height: 100vh;
-      width: calc(100% - 250px);
-      box-sizing: border-box;
     }
 
     .content-box {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      max-width: 900px;
       width: 100%;
+      max-width: 1000px;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0, 51, 102, 0.12);
     }
 
     .profile {
-      display: flex;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
       align-items: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
     }
 
-    .profile img {
-      width: 300px; /* Increased from 240px */
-      border-radius: 10px;
-      border: 2px solid #ccc;
+    .profile-photo {
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 4 / 5;
+      border: 3px solid #d4e5f6;
+      border-radius: 14px;
       object-fit: cover;
+      box-shadow: 0 5px 16px rgba(0, 51, 102, 0.12);
     }
 
-    .summary p.tight {
-      margin: 0.2rem 0;
+    .summary h2 {
+      margin: 0 0 0.35rem;
+      color: #003366;
+      font-size: 2.3rem;
+      line-height: 1.15;
+    }
+
+    .summary .position {
+      margin: 0 0 0.3rem;
+      color: #0066a1;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .summary .department,
+    .summary .institution {
+      margin: 0.15rem 0;
+      font-size: 1.08rem;
+      line-height: 1.5;
     }
 
     .summary a {
-      color: #003366;
+      color: #0066a1;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .summary a:hover,
+    .summary a:focus {
       text-decoration: underline;
     }
 
-    .summary a:hover {
-      text-decoration: underline;
+    .intro {
+      margin: 1.4rem 0 0;
+      color: #46515d;
+      font-size: 1.06rem;
+      line-height: 1.75;
     }
 
-    .research-interests {
-      font-size: 1.05rem;
-      color: #222;
-      margin-top: 2rem;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.5rem;
     }
 
-    .research-interests h2 {
+    .contact-item {
+      padding: 0.85rem 1rem;
+      background-color: #f7fbff;
+      border: 1px solid #d4e5f6;
+      border-radius: 8px;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 0.15rem;
       color: #003366;
-      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
-    .research-interests ul {
-      padding-left: 1.5rem;
+    .contact-item span,
+    .contact-item a {
+      color: #46515d;
+      font-size: 1rem;
+      overflow-wrap: anywhere;
     }
 
-    .research-interests li {
-      margin-bottom: 0.5rem;
+    section {
+      margin-top: 3rem;
+    }
+
+    .section-title {
+      margin: 0 0 1.4rem;
+      padding-bottom: 0.55rem;
+      color: #003366;
+      font-size: 1.8rem;
+      font-weight: 700;
+      border-bottom: 2px solid #aad4ff;
+    }
+
+    .interest-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .interest {
+      display: inline-block;
+      padding: 0.65rem 1rem;
+      background-color: #e8f2ff;
+      border: 1px solid #c6ddf5;
+      border-radius: 999px;
+      color: #003366;
+      font-size: 1rem;
+      font-weight: 600;
+      transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .interest:hover {
+      background-color: #d9ebff;
+      transform: translateY(-2px);
+    }
+
+    .support-text {
+      margin: 0 0 1.5rem;
+      color: #5b6773;
+      font-size: 1.03rem;
+      line-height: 1.65;
     }
 
     .logos {
-      display: flex;
-      justify-content: space-around;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      gap: 1.25rem;
       align-items: center;
-      padding: 2rem 0 1rem;
-      border-top: 1px solid #ccc;
-      margin-top: 3rem;
-      flex-wrap: wrap;
     }
 
-    .logos img {
-      width: 120px;
-      height: auto;
+    .logo-card {
+      min-height: 145px;
+      padding: 1.2rem;
+      background-color: #f7fbff;
+      border: 1px solid #d4e5f6;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .logo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0, 51, 102, 0.09);
+    }
+
+    .logo-card img {
+      display: block;
+      width: 100%;
+      max-width: 145px;
+      max-height: 90px;
       object-fit: contain;
-      margin: 0 1rem;
-      filter: grayscale(30%);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid #d4e5f6;
+      color: #6a7580;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .profile {
+        grid-template-columns: 240px 1fr;
+      }
+
+      .profile-photo {
+        max-width: 240px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 1.2rem;
+      }
+
+      nav h1 {
+        margin-bottom: 1rem;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      nav ul li a {
+        padding: 0.55rem 0.75rem;
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        transform: none;
+      }
+
+      main {
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+        padding: 1.25rem;
+      }
+
+      .content-box {
+        padding: 1.5rem;
+      }
+
+      .profile {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-photo {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .contact-grid {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logos {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-card {
+        min-height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav ul li a {
+        width: 100%;
+      }
+
+      main {
+        padding: 0.8rem;
+      }
+
+      .content-box {
+        padding: 1.2rem;
+        border-radius: 10px;
+      }
+
+      .summary h2 {
+        font-size: 1.9rem;
+      }
+
+      .summary .position {
+        font-size: 1.12rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
-  <nav>
+  <nav aria-label="Main navigation">
     <h1>Hari Dahal</h1>
+
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="cv.html">CV</a></li>
@@ -152,47 +419,121 @@
 
   <main>
     <div class="content-box">
-      <div class="profile">
-        <img src="headshot_23.jpeg" alt="Hari Dahal" />
+      <header class="profile">
+        <img
+          class="profile-photo"
+          src="headshot_23.jpeg"
+          alt="Portrait of Hari Dahal"
+        />
+
         <div class="summary">
-          <p><strong>Hari Dahal</strong></p>
-          <p><strong>Homepage: </strong> https://sites.google.com/view/haridahal/home  </p>
-          <p class="tight">Postdoctoral researcher</p>
-          <p class="tight">
-            <a href="https://medicine.uky.edu/departments/internalmedicine/welcome-biomedical-informatics" target="_blank" rel="noopener noreferrer">
-              Internal Medicine - Biomedical Informatics
+          <h2>Hari Dahal</h2>
+
+          <p class="position">Postdoctoral Researcher</p>
+
+          <p class="department">
+            <a
+              href="https://medicine.uky.edu/departments/internalmedicine/welcome-biomedical-informatics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Internal Medicine – Biomedical Informatics
             </a>
           </p>
-          <p class="tight">
-            <a href="https://www.uky.edu/" target="_blank" rel="noopener noreferrer">
+
+          <p class="institution">
+            <a
+              href="https://www.uky.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               University of Kentucky
             </a>
           </p>
 
-          <p> <strong> Office:</strong> Amos Eaton 427</p>
-          <p><strong> Email:</strong> <a href="mailto:haridahal156@gmail.com">haridahal156@gmail.com</a></p>
-          <p><strong>Webex: </strong> dahalh@rensselaer.webex.com  </p>
+          <p class="intro">
+            My research focuses on optimization algorithms, digital twins,
+            optimal transport, distributed computation, machine learning, and
+            causal inference. I am particularly interested in developing
+            scalable computational methods with strong theoretical guarantees
+            for complex scientific and biomedical applications.
+          </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:haridahal156@gmail.com">
+                haridahal156@gmail.com
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Academic Profile</strong>
+              <a
+                href="https://sites.google.com/view/haridahal/home"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Sites homepage
+              </a>
+            </div>
+
+            <!-- Update this once your University of Kentucky office is confirmed. -->
+            <div class="contact-item">
+              <strong>Office</strong>
+              <span>University of Kentucky</span>
+            </div>
+
+            <div class="contact-item">
+              <strong>Affiliation</strong>
+              <span>Biomedical Informatics</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div class="research-interests">
-        <h2>Research Interests</h2>
-        <ul>
-          <li> Digital twins </li>
-          <li>Constrained optimization algorithms</li>
-          <li>First-order methods and nonconvex optimization</li>
-          <li>Optimal transport and distributed optimization</li>
-          <li>Convergence analysis of iterative algorithms</li>
-          <li>Applications in machine learning and causal inference</li>
-        </ul>
-      </div>
+      <section>
+        <h2 class="section-title">Research Interests</h2>
 
-      <div class="logos">
-        <h2> Resesarch partly supported by </h2>
-        <p><img src="IBM-Logo.jpg" alt="IBM Logo" /></p>
-        <p><img src="ONR-logo.png" alt="ONR Logo" /></p>
-        <img src="NSF-logo.png" alt="NSF Logo" />
-      </div>
+        <div class="interest-container">
+          <span class="interest">Digital Twins</span>
+          <span class="interest">Constrained Optimization</span>
+          <span class="interest">First-Order Methods</span>
+          <span class="interest">Nonconvex Optimization</span>
+          <span class="interest">Optimal Transport</span>
+          <span class="interest">Distributed Optimization</span>
+          <span class="interest">Convergence Analysis</span>
+          <span class="interest">Machine Learning</span>
+          <span class="interest">Causal Inference</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Research Support</h2>
+
+        <p class="support-text">
+          Portions of my research have been supported through projects
+          associated with the following organizations.
+        </p>
+
+        <div class="logos">
+          <div class="logo-card">
+            <img src="IBM-Logo.jpg" alt="IBM logo" />
+          </div>
+
+          <div class="logo-card">
+            <img src="ONR-logo.png" alt="Office of Naval Research logo" />
+          </div>
+
+          <div class="logo-card">
+            <img src="NSF-logo.png" alt="National Science Foundation logo" />
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © 2026 Hari Dahal
+      </footer>
     </div>
   </main>
 </body>
