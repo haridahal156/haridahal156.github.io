@@ -3,111 +3,384 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Hari Dahal | Teaching</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    /* Same CSS used in homepage */
-    body {
-    margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    background-color: #e6f0ff;
-}
-    nav {
-      width: 250px;
-      background-color: #003366;
-      color: #fff;
-      padding: 2rem 1rem;
-      height: 100vh;
-      position: fixed;
+    * {
+      box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Source Sans 3", sans-serif;
+      background-color: #e6f0ff;
+      color: #2f3640;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      padding: 2rem 1rem;
+      background-color: #003366;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.08);
+    }
+
     nav h1 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
+      font-size: 1.9rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    nav ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0.5rem 0;
       text-align: center;
     }
-    ul {
-    padding-left: 1.4rem;
-    line-height: 1.8;
-}
 
-li {
-    margin-bottom: 0.7rem;
-    color: #333;
-}
     nav ul li a {
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
       color: #aad4ff;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    main {
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
-    box-sizing: border-box;
-}
 
-.content-box {
-    background: white;
-    max-width: 900px;
-    width: 100%;
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.10);
-}
-    
-    h2 {
-    color: #003366;
-    font-size: 1.8rem;
-    margin-top: 0;
-    border-bottom: 2px solid #aad4ff;
-    padding-bottom: 8px;
-}
-    p {
-    font-size: 1.08rem;
-    line-height: 1.7;
-    color: #333;
-}
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      transform: translateX(3px);
+    }
+
+    nav ul li a.active {
+      background-color: #ffffff;
+      color: #003366;
+    }
+
+    main {
+      width: calc(100% - 250px);
+      min-height: 100vh;
+      margin-left: 250px;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .content-box {
+      width: 100%;
+      max-width: 950px;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0, 51, 102, 0.12);
+    }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header h2 {
+      margin: 0 0 0.6rem;
+      color: #003366;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: #5a6572;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    section:first-of-type {
+      margin-top: 0;
+    }
+
+    section > h2 {
+      margin: 0 0 1.4rem;
+      padding-bottom: 0.55rem;
+      color: #003366;
+      font-size: 1.75rem;
+      font-weight: 700;
+      border-bottom: 2px solid #aad4ff;
+    }
+
+    .job {
+      margin-bottom: 1.8rem;
+      padding: 1.3rem 1.5rem;
+      background-color: #f5faff;
+      border-left: 5px solid #0066a1;
+      border-radius: 8px;
+    }
+
+    .job h3 {
+      margin: 0 0 0.3rem;
+      color: #003366;
+      font-size: 1.35rem;
+    }
+
+    .job .institution {
+      margin: 0.15rem 0;
+      color: #343d48;
+      font-size: 1.08rem;
+      font-weight: 600;
+    }
+
+    .job .dates {
+      margin: 0.25rem 0 0;
+      color: #647180;
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .experience-list {
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .experience-list li {
+      margin-bottom: 0.85rem;
+      padding-left: 0.25rem;
+      color: #343d48;
+      font-size: 1.06rem;
+      line-height: 1.65;
+    }
+
+    .experience-list li::marker {
+      color: #0066a1;
+    }
+
+    .interest-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .interest {
+      display: inline-block;
+      padding: 0.6rem 1rem;
+      background-color: #e8f2ff;
+      border: 1px solid #c6ddf5;
+      border-radius: 999px;
+      color: #003366;
+      font-size: 1rem;
+      font-weight: 600;
+      transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .interest:hover {
+      background-color: #d9ebff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 800px) {
+      body {
+        display: block;
+      }
+
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 1.2rem;
+      }
+
+      nav h1 {
+        margin-bottom: 1rem;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      nav ul li a {
+        padding: 0.55rem 0.75rem;
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        transform: none;
+      }
+
+      main {
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+        padding: 1.25rem;
+      }
+
+      .content-box {
+        padding: 1.5rem;
+      }
+
+      .page-header h2 {
+        font-size: 1.85rem;
+      }
+
+      section > h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav ul li a {
+        width: 100%;
+      }
+
+      main {
+        padding: 0.8rem;
+      }
+
+      .content-box {
+        padding: 1.2rem;
+        border-radius: 10px;
+      }
+
+      .job {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
+
 <body>
   <nav>
     <h1>Hari Dahal</h1>
+
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
-      <li><a href="teaching.html">Teaching</a></li>
+      <li><a class="active" href="teaching.html">Teaching</a></li>
       <li><a href="cv.html">CV</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  
-  <main>
-    <h2>Research Experience</h2>
-    <p><strong>Doctoral Researcher</strong>, Dept. of Mathematical Sciences, RPI (May 2020 – Present)</p>
-    <ul>
-      <li>Designed and analyzed a state-of-the-art optimization algorithm, Damped Proximal Augmented Lagrangian Method (DPALM), to improve convergence speed in nonconvex problems.</li>
-      <li>Evaluated complexity and performance of DPALM in applications including bias reduction in machine learning and robustness enhancement.</li>
-      <li>Solved dynamic optimal transport problems with real-world applications in generative AI using decentralized optimization techniques.</li>
-      <li>Implemented algorithms in Python using MPI and Numpy for distributed computation.</li>
-    </ul>
 
-    <h2>Research Interests</h2>
-    <ul>
-      <li>Constrained Optimization Algorithms</li>
-      <li>First-order Methods & Nonconvex Optimization</li>
-      <li>Dynamic Optimal Transport Problems</li>
-      <li>Distributed Optimization</li>
-      <li>Convergence Analysis</li>
-    </ul>
+  <main>
+    <div class="content-box">
+      <header class="page-header">
+        <h2>Research and Academic Experience</h2>
+
+        <p>
+          My research focuses on the design, analysis, and implementation of
+          optimization algorithms, with applications in machine learning,
+          optimal transport, and distributed computation.
+        </p>
+      </header>
+
+      <section>
+        <h2>Research Experience</h2>
+
+        <div class="job">
+          <h3>Doctoral Researcher</h3>
+
+          <p class="institution">
+            Department of Mathematical Sciences, Rensselaer Polytechnic Institute
+          </p>
+
+          <p class="dates">May 2020 – Present</p>
+        </div>
+
+        <ul class="experience-list">
+          <li>
+            Designed and analyzed the Damped Proximal Augmented Lagrangian
+            Method (DPALM), a state-of-the-art optimization algorithm for
+            constrained nonconvex problems.
+          </li>
+
+          <li>
+            Evaluated the theoretical complexity and computational performance
+            of DPALM in applications involving bias reduction in machine
+            learning and robustness enhancement.
+          </li>
+
+          <li>
+            Developed methods for solving dynamic optimal transport problems
+            with applications in generative artificial intelligence and
+            scientific computing.
+          </li>
+
+          <li>
+            Designed distributed optimization frameworks to improve
+            computational efficiency in terms of both execution time and
+            memory requirements.
+          </li>
+
+          <li>
+            Implemented optimization algorithms in Python using MPI and NumPy
+            for parallel and distributed computation.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Research Interests</h2>
+
+        <div class="interest-container">
+          <span class="interest">Constrained Optimization</span>
+          <span class="interest">First-Order Methods</span>
+          <span class="interest">Nonconvex Optimization</span>
+          <span class="interest">Dynamic Optimal Transport</span>
+          <span class="interest">Distributed Optimization</span>
+          <span class="interest">Convergence Analysis</span>
+          <span class="interest">Machine Learning</span>
+          <span class="interest">Causal Inference</span>
+        </div>
+      </section>
+    </div>
   </main>
-  
 </body>
 </html>
-
