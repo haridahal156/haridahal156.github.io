@@ -3,90 +3,514 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hari Dahal | Teaching</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <title>Hari Dahal | CV</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    /* Same CSS used in homepage */
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      display: flex;
-      background-color: #fdfdfd;
+      min-height: 100vh;
+      font-family: "Source Sans 3", sans-serif;
+      background-color: #e6f0ff;
+      color: #2f3640;
     }
+
     nav {
-      width: 250px;
-      background-color: #003366;
-      color: #fff;
-      padding: 2rem 1rem;
-      height: 100vh;
       position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100vh;
+      padding: 2rem 1rem;
+      background-color: #003366;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.08);
     }
+
     nav h1 {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
+      margin: 0 0 2rem;
+      font-size: 1.9rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    nav ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0.5rem 0;
       text-align: center;
     }
-    nav ul {
-      list-style: none;
-      padding: 0;
-    }
-    nav ul li {
-      margin: 1rem 0;
-    }
+
     nav ul li a {
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 6px;
       color: #aad4ff;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 1.05rem;
+      font-weight: 600;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
     }
-    nav ul li a:hover {
-      text-decoration: underline;
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      background-color: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      transform: translateX(3px);
     }
-    main {
-      margin-left: 250px;
-      padding: 2rem;
-      max-width: 900px;
-    }
-    h2 {
+
+    nav ul li a.active {
+      background-color: #ffffff;
       color: #003366;
+    }
+
+    main {
+      width: calc(100% - 250px);
+      min-height: 100vh;
+      margin-left: 250px;
+      padding: 2.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .content-box {
+      width: 100%;
+      max-width: 950px;
+      padding: 2.5rem;
+      background-color: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 6px 22px rgba(0, 51, 102, 0.12);
+    }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header h2 {
+      margin: 0 0 0.6rem;
+      color: #003366;
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .page-header p {
+      margin: 0;
+      color: #5a6572;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    section {
+      margin-top: 2.7rem;
+    }
+
+    section:first-of-type {
+      margin-top: 0;
+    }
+
+    .section-title {
+      margin: 0 0 1.4rem;
+      padding-bottom: 0.55rem;
+      color: #003366;
+      font-size: 1.75rem;
+      font-weight: 700;
+      border-bottom: 2px solid #aad4ff;
+    }
+
+    .education-list,
+    .award-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .education-item,
+    .award-item {
+      padding: 1.25rem 1.4rem;
+      background-color: #f7fbff;
+      border: 1px solid #d4e5f6;
+      border-left: 5px solid #0066a1;
+      border-radius: 9px;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .education-item:hover,
+    .award-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0, 51, 102, 0.09);
+    }
+
+    .education-item h3,
+    .award-item h3 {
+      margin: 0 0 0.25rem;
+      color: #003366;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    .education-item .institution,
+    .award-item .institution {
+      margin: 0.15rem 0;
+      color: #414b57;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .education-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.2rem;
+      margin-top: 0.45rem;
+      color: #66727f;
+      font-size: 0.98rem;
+    }
+
+    .gpa {
+      display: inline-block;
+      padding: 0.2rem 0.65rem;
+      background-color: #e8f2ff;
+      border: 1px solid #c6ddf5;
+      border-radius: 999px;
+      color: #003366;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1.25rem 1.35rem;
+      background-color: #f7fbff;
+      border: 1px solid #d4e5f6;
+      border-radius: 9px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 0.75rem;
+      color: #003366;
+      font-size: 1.18rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      padding: 0.45rem 0.75rem;
+      background-color: #e8f2ff;
+      border: 1px solid #c6ddf5;
+      border-radius: 999px;
+      color: #003366;
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .award-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .award-year {
+      flex-shrink: 0;
+      padding: 0.35rem 0.7rem;
+      background-color: #003366;
+      border-radius: 999px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 800px) {
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 1.2rem;
+      }
+
+      nav h1 {
+        margin-bottom: 1rem;
+      }
+
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      nav ul li a {
+        padding: 0.55rem 0.75rem;
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        transform: none;
+      }
+
+      main {
+        width: 100%;
+        min-height: auto;
+        margin-left: 0;
+        padding: 1.25rem;
+      }
+
+      .content-box {
+        padding: 1.5rem;
+      }
+
+      .page-header h2 {
+        font-size: 1.85rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      nav ul li a {
+        width: 100%;
+      }
+
+      main {
+        padding: 0.8rem;
+      }
+
+      .content-box {
+        padding: 1.2rem;
+        border-radius: 10px;
+      }
+
+      .education-item,
+      .award-item,
+      .skill-card {
+        padding: 1rem;
+      }
+
+      .award-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
   <nav>
     <h1>Hari Dahal</h1>
+
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="teaching.html">Teaching</a></li>
-      <li><a href="cv.html">CV</a></li>
+      <li><a class="active" href="cv.html">CV</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  
+
   <main>
-    <h2>Education</h2>
-    <ul>
-      <li>PhD, Applied Mathematics – Rensselaer Polytechnic Institute (Aug 2026), GPA: 4.0</li>
-      <li>MSc, Applied Mathematics – Rensselaer Polytechnic Institute (May 2022), GPA: 4.0</li>
-      <li>BSc, Applied Mathematics – University of Louisiana Monroe (May 2020), GPA: 3.98</li>
-    </ul>
+    <div class="content-box">
+      <header class="page-header">
+        <h2>Curriculum Vitae</h2>
 
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>Optimization: MATLAB, CPLEX/AMPL</li>
-      <li>Machine Learning: Python (PyTorch, scikit-learn, TensorFlow)</li>
-      <li>Data Analysis: R, SQL</li>
-      <li>Documentation: LaTeX, Microsoft Office</li>
-    </ul>
+        <p>
+          Academic background, technical expertise, and selected awards in
+          applied mathematics, optimization, machine learning, and scientific
+          computing.
+        </p>
+      </header>
 
-    <h2>Awards</h2>
-    <ul>
-      <li>Joaquin B Diaz Prize, RPI (2025)</li>
-      <li>SIAM Travel Award (2024)</li>
-      <li>Graduate Education Travel Award, RPI (2024)</li>
-      <li>MOCA Fellowship, RPI (2022)</li>
-    </ul>
+      <section>
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-list">
+          <article class="education-item">
+            <h3>Ph.D. in Applied Mathematics</h3>
+
+            <p class="institution">
+              Rensselaer Polytechnic Institute
+            </p>
+
+            <div class="education-details">
+              <span>Expected August 2026</span>
+              <span class="gpa">GPA: 4.0</span>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <h3>M.S. in Applied Mathematics</h3>
+
+            <p class="institution">
+              Rensselaer Polytechnic Institute
+            </p>
+
+            <div class="education-details">
+              <span>May 2022</span>
+              <span class="gpa">GPA: 4.0</span>
+            </div>
+          </article>
+
+          <article class="education-item">
+            <h3>B.S. in Applied Mathematics</h3>
+
+            <p class="institution">
+              University of Louisiana Monroe
+            </p>
+
+            <div class="education-details">
+              <span>May 2020</span>
+              <span class="gpa">GPA: 3.98</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Optimization and Scientific Computing</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">MATLAB</span>
+              <span class="skill-tag">CPLEX</span>
+              <span class="skill-tag">AMPL</span>
+              <span class="skill-tag">MPI</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Machine Learning</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">PyTorch</span>
+              <span class="skill-tag">scikit-learn</span>
+              <span class="skill-tag">TensorFlow</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Data Analysis</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">NumPy</span>
+              <span class="skill-tag">Pandas</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Technical Writing and Documentation</h3>
+
+            <div class="skill-tags">
+              <span class="skill-tag">LaTeX</span>
+              <span class="skill-tag">Microsoft Office</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">GitHub</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Awards and Fellowships</h2>
+
+        <div class="award-list">
+          <article class="award-item">
+            <div>
+              <h3>Joaquin B. Diaz Prize</h3>
+              <p class="institution">Rensselaer Polytechnic Institute</p>
+            </div>
+
+            <span class="award-year">2025</span>
+          </article>
+
+          <article class="award-item">
+            <div>
+              <h3>SIAM Travel Award</h3>
+              <p class="institution">
+                Society for Industrial and Applied Mathematics
+              </p>
+            </div>
+
+            <span class="award-year">2024</span>
+          </article>
+
+          <article class="award-item">
+            <div>
+              <h3>Graduate Education Travel Award</h3>
+              <p class="institution">Rensselaer Polytechnic Institute</p>
+            </div>
+
+            <span class="award-year">2024</span>
+          </article>
+
+          <article class="award-item">
+            <div>
+              <h3>MOCA Fellowship</h3>
+              <p class="institution">Rensselaer Polytechnic Institute</p>
+            </div>
+
+            <span class="award-year">2022</span>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 </html>
